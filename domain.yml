@@ -1,0 +1,97 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+  - edad_usuario
+  - ciudad_residencia
+  - horario_vespertino
+  - horario_matutino
+  - coordinar_horario
+  - consultar_estado_actual_cursadas
+  - consultar_por_materia
+  - consultar_estado_carrera
+  - consultar_tarea
+  - consultar_cursadas
+  - responder_consultas
+  - consultar_dudas
+
+entities:
+  - ciudad
+  - anios  
+  - anio
+  - dia
+  - materia
+  - materias
+  - cuatrimestre
+
+slots:
+  slot_ciudad:                 # (Olavarria|Tandil|Azul...)
+   type: text
+    - type: from_entity
+      entity: ciudad
+  
+  slot_anios:                  # (1|2|3|4|5)
+   type: int #----------------------------------------------------------------------- se puede ?
+   - type: from_entity
+      entity: anios
+  
+  slot_anio:                   # (tercero |quinto| 2| 1 | anio) 
+   type: text
+    - type: from_entity
+      entity: anio   
+
+  slot_dia:                    # (manana| pasado manana | pasado | miercoles | viernes)
+   type: text
+    - type: from_entity
+      entity: dia
+
+  slot_materia:                # (analisis II)
+   type: text
+    - type: from_entity
+      entity: materia         
+
+  slot_materias:               # (materias)
+   type: text
+    - type: from_entity
+      entity: materias 
+
+  slot_cuatrimestre:           # (cuatrimestre)
+   type: text
+    - type: from_entity
+      entity: cuatrimestre       
+
+actions: 
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Hola! Como andas ?"
+  - text: "Buenas!!"
+  - text: "Holiiis! Como va eso?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

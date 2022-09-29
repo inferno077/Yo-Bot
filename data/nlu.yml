@@ -1,0 +1,364 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hola
+    - holiiis
+    - holu
+    - holis
+    - que hay
+    - que onda
+    - que ondaaa
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - nos vemos
+    - chau
+    - adios
+    - ns vemos
+    - hasta luego 
+    - nos vemos luego
+    - luego ns vemos
+    - nos estamos viendo
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - asi es
+    - si
+    - correcto
+    - de acuerdo
+    - claro
+    - claro asi
+    - claro eso
+    - claro eso mismo
+    - por su puesto
+    - ajam
+    - por su pollo
+    - por su poyo
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - no realmente
+    - de ninguna forma
+    - de ninguna manera
+    - no lo creo
+    - noup
+    - niet
+    - nop
+    - no me gusta eso
+    - no me gusta nada
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - tan peso goodrfecto
+    - tan bueno 
+    - tan buena
+    - extremadamente bueno
+    - extremadamente buena
+    - voy a salvar el mundo
+    - maravilloso
+    - me siento como un rey
+    - me siento dios
+    - perfecto
+    - soy perfecto
+    - genial
+    - soy genial
+    - increible
+    - soy increible
+    - hermoso
+    - soy hermoso
+    
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - tan triste
+    - extremadamente triste
+    - super triste
+    - infeliz
+    - triste
+    - muy triste
+    - estoy triste
+    - estoy muy triste
+    - mi dia fue horrible
+    - tuve un horrible dia
+    - no me siento bien
+    - no me siento muy bien
+    - estoy decepcionada
+    - estoy decepcionado
+    - de malas
+    - mal
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - quien sos ?
+    - quien eres?
+    - eres un robot ?
+    - eres un bot ?
+    - eres una maquina?
+    - sos un robot ?
+    - sos un bot ?
+    - sos una maquina ?
+    - le estoy hablando a un robot?
+    - le estoy hablando a una maquina?
+    - sos humano ?
+    - eres humano ?
+    - eres un humano ?
+
+# mi nombre es Pepito Flores y mi dni es 54323095
+- intent: edad_usuario
+  examples: |
+    - tengo [18](anios)
+    - [18](anios) anios
+    - [17](anios)
+    - yo tengo [27](anios)
+    - [24](anios) recien cumplidos
+    - recien cumpli [14](anios)
+    - el mes que viene cumplo [22](anios)
+    - cumplire [55](anios)
+    - en unos dias cumplire [55](anios)
+    - dentro de poco cumplire [55](anios)
+    - voy a cumplir [30](anios)
+    - voy a cumplir dentro de poco [30](anios)
+    - si, tengo [25](anios)
+- regex: anios
+  examples: |
+   - ([0-9]{2,3})  
+
+- intent: ciudad_residencia
+  examples: |
+    - vivo en [Tandil](ciudad)
+    - vivo en [Olavarria](ciudad)
+    - vivo en [Azul](ciudad)
+    - soy de [Salta](ciudad)
+    - soy de [CABA](ciudad)
+    - de [Tandil](ciudad)
+    - de [Bolivar](ciudad)
+    - de [Jujuy](ciudad)
+    - de [Mar del Plata](ciudad)
+    - radicado en [Coronel Pringles](ciudad)
+    - radicado en [Olavarria](ciudad)
+    - viviendo en [buenos aires](ciudad)
+    - resido en [La plata](ciudad)
+    - resido en [Tucuman](ciudad)
+    - resido en [Coronel Pringles](ciudad)
+- regex : ciudad
+  examples: |
+   - ((([aA-zZ]\w+ *){1,})+( )*){1,} 
+
+- intent: horario_vespertino
+   examples: |
+   - puedo retirarlo de tarde
+   - puedo buscarlo a la tarde
+   - puedo de tarde
+   - puedo pasar a la tarde
+   - de tarde
+   - de tarde en lo posible
+   - solo puedo de tarde
+   - que horarios de tarde hay disponibles ?
+   - atienden de tarde ?   
+   - que horario podes de tarde?
+   - a que hora puedes de tarde?
+   - podes a la tarde?
+   
+- intent: horario_matutino
+   examples: |
+   - puedo retirarlo de mañana
+   - puedo buscarlo a la mañana
+   - puedo de mañana
+   - puedo pasar a la mañana
+   - de mañana
+   - de mañana en lo posible
+   - solo puedo de mañana 
+   - solo de mañana
+   - a la mañana
+   - por la mañana
+   - que horario podes de mañana?
+   - a que hora puedes de mañana?
+   - podes a la mañana?
+
+- intent: coordinar_horario
+   example: |
+   - cuando podes?
+   - cuando estas disponible?
+   - cuando estas desocupado?
+   - [pasado](dia) que horarios podes ?
+   - [pasado](dia) que horarios tenes disponibles ?
+   - [mañana](dia) que horario tenes disponible ?
+   - podes [mañana](dia)
+   - [pasado mañana](dia) podes?
+   - el [miercoles](dia) podes?
+   - el [lunes](dia) podes?
+   - [martes](dia) podes?
+   - podes el [sabado](dia)?
+   - podrias el [jueves](dia)
+   - podes el [domingo](dia)
+   - podes el [viernes](dia)
+- regex : dia
+  examples: |
+   -((([aA-zZ]\w+ *){1,})+( )*){1,2} 
+# \w - Matches any alphanumeric character (digits and alphabets). Equivalent to [a-zA-Z0-9_]. By the way, underscore ( _ ) is also considered an alphanumeric character.
+#  + - The plus symbol + matches one or more occurrences of the pattern left to it.
+# ... +( )*){1,2} :: El + admite una o mas ocurrencias de los  caracteres de la izquierda (" (([aA-zZ]\w+ *){1,}) ")  luego el parentesis agrega uno o mas espacios por el asterisco "()*" , y {1,2} quiere decir que puede haber como minimo una palabra, y como maximo 2:: EJ  (pasado, pasado manana )
+
+- intent: consultar_estado_actual_cursadas
+   examples: |
+   - que estas cursando ? 
+   - que materias estas cursando ?
+   - en que materias te anotaste?
+   - en que materias te anotaste para esta cursada?
+   - en que materias te anotaste para este cuatrimestre?
+   - que materias estas haciendo ?
+   - cuales estas cursando ?
+   - este anio que cursas?
+   - que cursaste este anio?
+
+- intent: consultar_por_materia
+   examples: |  
+   - como te esta yendo con [Introduccion a Programacion 2](materia)
+   - como te esta llendo en [Comunicacion de Datos II](materia)
+   - como te esta yendo en [Investigacion Operativa](materia)
+   - como te va con [Base de Datos](materia)
+   - como vas con [Algebra Lineal](materia)
+   - que tal [Analisis 1](materia)
+   - que tal [Probabilidad y Estadistica](materia)?
+   - [Electronica Digital](materia) es dificil?
+   - [Ciencias de la Computacion 2](materia) esta complicada?
+   - [Ciencias de la Computacion II](materia) esta complicada?
+   - [Analisis Matematico II](materia) es linda ?
+   - [Ingles](materia) es complicada
+- regex : materia
+  examples: |
+   -((([aA-zZ]\w+ *){1,})+(, )*){1,10} 
+
+- intent: consultar_estado_carrera
+   examples: |
+   - como venis con la carrera?
+   - en que anio estas ?
+   - como te esta yendo en la carrera ?
+   - venis bien con la carrera ?
+   - como vas con la carrera ?
+   - venis al dia con las cursadas ? 
+
+- intent: consultar_tarea
+   examples: |
+   - pudiste resolver los ejercicios ?
+   - pudiste ver los videos y teorias de la ultima clase?
+   - pudiste ver los videos de la ultima clase?
+   - pudiste ver la teoria de la ultima clase?
+   - entendiste los conceptos de la materia ?
+   - entendiste la ultima clase que di?
+   - entendiste los conceptos generales ?
+   - tuviste problemas con algun tema ?
+   - tuviste problemas en algun ejercicio ?
+   - pudiste resolver la actividad propuesta ?
+
+- intent: consultar_cursadas
+   examples: |     
+   - estas cursando (tercero)(anio)?
+   - estas cursando (4)(anio) anio?
+   - estas cursando (4)(anio) to anio?
+   
+#puedo usar esta entidad (anios) aca ?-------------------------------   
+   - estas cursando (4)(anios) anio?   
+   #-------------------------------   
+   - que [materias](materias) estas cursando ?  #- que [fddgfdgdf](materias) estas cursando ?
+   - que [materias](materias) y de que [anio](anio) y [cuatrimestre](cuatrimestre) estas cursando?
+   - que [materias](materias) estas cursando?
+   - que [anio](anio) y [cuatrimestre](cuatrimestre) estas cursando?
+   - en que [anio](anio) y [cuatrimestre](cuatrimestre) de la carrera te encuentras?
+- regex: anio
+  examples: |
+   - (  [1-5] | ([aA-zZ]\w+ *)  ){1,1}
+# Puede ingresar un numero o nombrarlo en cuestion   
+
+- intent: responder_consultas
+   examples: |     
+   - genial!! Entonces no tienes mas dudas ?
+   - queres que te lo explique de otra forma ?
+   - queres que te lo explique de otra manera ?
+   - si queres comentame en que tuviste dificultades ?
+   - esta bien , podes comentarme tu situacion
+   - si no tienes mas dudas , con esto estamos
+   - si no tenes mas dudas , dejamos hasta aca
+
+- intent: consultar_dudas
+   examples: |     
+   - genial!! Entonces no tienes mas dudas ?
+   - si queres comentame en que tuviste dificultades ?
+   - si no tienes mas dudas , con esto estamos
+   - si no tenes mas dudas , dejamos hasta aca
+   - alguna otra duda?
+   - alguna duda ?
+   - otra consulta ?
+   - algo no se entendio?
+   - algo que no te halla quedado claro ?
+   - algo que no te quedo del todo claro ?
+   - algo no te quedo del todo claro ?
