@@ -8,9 +8,9 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-
   - edad_usuario
   - ciudad_residencia
+  - preguntar_ciudad
   - horario_vespertino
   - horario_matutino
   - coordinar_horario
@@ -30,67 +30,187 @@ entities:
   - materia
   - materias
   - cuatrimestre
+  - franjaH
+  - mi_ciudad
+
+ # (Olavarria|Tandil|Azul...)
 
 slots:
-  slot_ciudad:                 # (Olavarria|Tandil|Azul...)
+  slot_ciudad:                 
    type: text
-    - type: from_entity
-      entity: ciudad
-  
-  slot_anios:                  # (1|2|3|4|5)
-   type: int #----------------------------------------------------------------------- se puede ?
+   mappings:
    - type: from_entity
-      entity: anios
+     entity: ciudad  
+
+  slot_mi_ciudad:                 
+   type: text
+   mappings:
+   - type: from_entity
+     entity: mi_ciudad   
+
+  # (1|2|3|4|5) ----------------------------------------------------------------------- se puede poner int?
+
+  slot_anios:              
+   type: text 
+   mappings:
+   - type: from_entity
+     entity: anios
+
+  # (tercero |quinto| 2| 1 | anio) 
   
-  slot_anio:                   # (tercero |quinto| 2| 1 | anio) 
+  slot_anio:                 
    type: text
-    - type: from_entity
-      entity: anio   
-
-  slot_dia:                    # (manana| pasado manana | pasado | miercoles | viernes)
+   mappings:
+   - type: from_entity
+     entity: anio   
+  
+  # [coordinar_horario]:: (mañana| pasado mañana | pasado | miercoles | viernes)
+  
+  slot_dia:                    
    type: text
-    - type: from_entity
-      entity: dia
-
-  slot_materia:                # (analisis II)
+   mappings:
+   - type: from_entity
+     entity: dia
+  
+  # [consultar_por_materia]:: (analisis II, Intro a.., ..., etc)
+  
+  slot_materia:                 
    type: text
-    - type: from_entity
-      entity: materia         
-
-  slot_materias:               # (materias)
+   mappings:
+   - type: from_entity
+     entity: materia         
+  
+  # [consultar_cursadas]:: (materias)
+  
+  slot_materias:               
    type: text
-    - type: from_entity
-      entity: materias 
-
-  slot_cuatrimestre:           # (cuatrimestre)
+   mappings:
+   - type: from_entity
+     entity: materias 
+  
+  # (cuatrimestre)
+  
+  slot_cuatrimestre:            
    type: text
-    - type: from_entity
-      entity: cuatrimestre       
+   mappings:
+   - type: from_entity
+     entity: cuatrimestre       
+  
+  # (mañana|tarde|noche)
+  
+  slot_franjaH:                 
+   type: text
+   mappings:
+   - type: from_entity
+     entity: franjaH 
 
 actions: 
+  - action_edad
+  - action_ciudad_residencia
 
 responses:
+
+  utter_desconocido:
+  - text: "Hola buen dia! Disculpame, como te llamas ? No te tengo agendado"
+  - text: "Hola, quien sos ?. No tengo este numero agendado.."
+
+  utter_estar_bien:
+  - text: "Bien aca!."
+  - text: "Bien!."
+  - text: "Muy Bien!."
+  - text: "Exelente!."
+  - text: "Mejor que nunca!."
+
+  utter_preparando_materia:
+  - text: "Preparando los proyectos para la proxima entrega"
+  - text: "Preparandome para la presentacion"
+  
+  utter_estado_materia:
+  - text: "De momento bien. Tengo que repasar algunas cosas"
+  - text: "Por suerte vengo al dia "
+
+  utter_estado_finales:
+  - text: "Ahi ando , tendria que regularizar varios finales ."
+  - text: "Di bastantes, aunque podrian ser menos"
+
+  utter_linda_opinion_materia:
+  - text: "La verdad es que es bastante dinamica e interactiva. Me gustaria que halla mas catedras de este estilo."
+  - text: "La catedra es muy buena."
+
+  utter_opinion_fea_materia:
+  - text: "La materia pareciera linda , pero no me gusta que den los temas por el aire."
+  - text: "Creo que es una materia interesante, pero en lo personal no me gusta."
+  
+  utter_dudas_materia:
+  - text: "De momento no , quizas algunas cuestiones de Prolog."
+
+  utter_consulta_tema:
+  - text: "Podrias explicarme, como devolver mas de una variable en Python ?"
+  - text: "Podrias explicarme, como funciona el corte (!), en Prolog?"
+  - text: "No me queda del todo claro, como configurar las credenciales"
+  
+  utter_preguntar_actividades:
+  - text: "Estudias o trabajas?"
+  - text: "Estas trabajando o estudiando?"
+  - text: "A que te dedicas?"
+
+  utter_mi_ciudad: 
+  - text: "Soy de Olavarria"
+  - text: "Naci en Olavarria"
+
+  utter_viviendo_en: 
+  - text: "actualmente vivo en Tandil" 
+  - text: "por los estudios, ahora vivo en Tandil"
+
+  #utter_viviendo_en: 
+  #- text: "actualmente vivo en Tandil" 
+  #- text: "por los estudios, ahora vivo en Tandil"
+
+  utter_afirmar:
+  - text: "Si si"
+  - text: "Asi es!"
+  - text: "Si claro!"
+  - text: "Si, por supuesto!"
+
   utter_greet:
-  - text: "Hey! How are you?"
   - text: "Hola! Como andas ?"
   - text: "Buenas!!"
   - text: "Holiiis! Como va eso?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
+  - text: "Quizas esto te anime:"
     image: "https://i.imgur.com/nGF1K8f.jpg"
 
+  #video: "https://www.youtube.com/watch?v=WzgLBNOGMQQ&vl=es"
+  #video: "https://www.youtube.com/watch?v=TUbtye9qx34&ab_channel=FunnyAnimals%27Club"
+    
+  utter_preguntar_donde_vive:
+  - text: Vos donde vivis?
+  - text: "Y vos donde estas viviendo ?"
+  - text: "Vos de que ciudad sos ?"
+  - text: "Y vos ?"
+
   utter_did_that_help:
-  - text: "Did that help you?"
+  - text: "Esto te ayuda ?"
+  - text: "Te sirve ?"
+  - text: "Te es de utilidad ?"
 
   utter_happy:
   - text: "Great, carry on!"
+  - text: "Genial!."
+  - text: "Que bueno!."
+  - text: "Ahh que bueno!!!"
 
   utter_goodbye:
   - text: "Bye"
+  - text: "Hasta luego!"
+  - text: "Adioos"
+  - text: "Nos vemos!."
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "No. Mira que voy a ser un bot, tan mal hablo ?"
+  - text: ".. Me viste cara de robot ?"
+  - text: "Soy Mariano! Ya te olvidaste de mi ?"
 
 session_config:
   session_expiration_time: 60

@@ -28,3 +28,11 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: localidad
+  steps:
+  - intent: preguntar_ciudad # Me preguntan donde vivo
+  - action: action_ciudad_residencia # Como respuesta le digo donde, y si no conozco donde vive(slot ciudad), le consulta
+  - intent: ciudad_residencia # se supone q me va a decir donde
+  - action: action_ciudad_residencia # guardo su ciudad de residencia
+   

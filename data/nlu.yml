@@ -213,39 +213,61 @@ nlu:
   examples: |
    - ((([aA-zZ]\w+ *){1,})+( )*){1,} 
 
-- intent: horario_vespertino
-   examples: |
-   - puedo retirarlo de tarde
-   - puedo buscarlo a la tarde
-   - puedo de tarde
-   - puedo pasar a la tarde
-   - de tarde
-   - de tarde en lo posible
-   - solo puedo de tarde
-   - que horarios de tarde hay disponibles ?
-   - atienden de tarde ?   
-   - que horario podes de tarde?
-   - a que hora puedes de tarde?
-   - podes a la tarde?
+#- intent: preguntar_ciudad
+#  examples: |
+#    - de que ciudad sos?
+#    - de que ciudad eres?
+#    - de donde sos ?
+#    - cual es tu ciudad de origen?
+#    - de que ciudad venis?
+#    - eres de [tandil](mi_ciudad)
+#    - sos de [olavarria](mi_ciudad)?
+#    - estas radicado en [coronel Pringles](mi_ciudad)?
+#    - vivis en [Tierra del Fuego](mi_ciudad)?
+#    - cual es tu ciudad de residencia?
+#    - residis en [Olavarria](mi_ciudad)?
+
+- intent: preguntar_ciudad
+  examples: |
+    - eres de [tandil](mi_ciudad)?
+    - sos de [olavarria](mi_ciudad)?
+    - estas radicado en [coronel Pringles](mi_ciudad)?
+    - vivis en [Tierra del Fuego](mi_ciudad)?
+    - residis en [Olavarria](mi_ciudad)?
+
+#- intent: horario_vespertino
+#  examples: |
+#   - puedo retirarlo de tarde
+#   - puedo buscarlo a la tarde
+#   - puedo de tarde
+#   - puedo pasar a la tarde
+#   - de tarde
+#   - de tarde en lo posible
+#   - solo puedo de tarde
+#   - que horarios de tarde hay disponibles ?
+#   - atienden de tarde ?   
+#   - que horario podes de tarde?
+#   - a que hora puedes de tarde?
+#   - podes a la tarde?
    
-- intent: horario_matutino
-   examples: |
-   - puedo retirarlo de mañana
-   - puedo buscarlo a la mañana
-   - puedo de mañana
-   - puedo pasar a la mañana
-   - de mañana
-   - de mañana en lo posible
-   - solo puedo de mañana 
-   - solo de mañana
-   - a la mañana
-   - por la mañana
-   - que horario podes de mañana?
-   - a que hora puedes de mañana?
-   - podes a la mañana?
+- intent: franja_horaria
+  examples: |
+   - puedo retirarlo de [noche](franjaH)
+   - puedo buscarlo a la [mañana](franjaH)
+   - puedo de [tarde](franjaH)
+   - puedo pasar a la [mañana](franjaH)
+   - de [noche](franjaH)
+   - de [mañana](franjaH) en lo posible
+   - solo puedo de [mañana](franjaH)
+   - solo de [tarde](franjaH)
+   - a la [mañana](franjaH)
+   - por la [noche](franjaH)
+   - que horario podes de [tarde](franjaH)?
+   - a que hora puedes de [noche](franjaH)?
+   - podes a la [mañana](franjaH)?
 
 - intent: coordinar_horario
-   example: |
+  examples: |
    - cuando podes?
    - cuando estas disponible?
    - cuando estas desocupado?
@@ -269,7 +291,7 @@ nlu:
 # ... +( )*){1,2} :: El + admite una o mas ocurrencias de los  caracteres de la izquierda (" (([aA-zZ]\w+ *){1,}) ")  luego el parentesis agrega uno o mas espacios por el asterisco "()*" , y {1,2} quiere decir que puede haber como minimo una palabra, y como maximo 2:: EJ  (pasado, pasado manana )
 
 - intent: consultar_estado_actual_cursadas
-   examples: |
+  examples: |
    - que estas cursando ? 
    - que materias estas cursando ?
    - en que materias te anotaste?
@@ -281,7 +303,7 @@ nlu:
    - que cursaste este anio?
 
 - intent: consultar_por_materia
-   examples: |  
+  examples: |  
    - como te esta yendo con [Introduccion a Programacion 2](materia)
    - como te esta llendo en [Comunicacion de Datos II](materia)
    - como te esta yendo en [Investigacion Operativa](materia)
@@ -299,7 +321,7 @@ nlu:
    -((([aA-zZ]\w+ *){1,})+(, )*){1,10} 
 
 - intent: consultar_estado_carrera
-   examples: |
+  examples: |
    - como venis con la carrera?
    - en que anio estas ?
    - como te esta yendo en la carrera ?
@@ -308,7 +330,7 @@ nlu:
    - venis al dia con las cursadas ? 
 
 - intent: consultar_tarea
-   examples: |
+  examples: |
    - pudiste resolver los ejercicios ?
    - pudiste ver los videos y teorias de la ultima clase?
    - pudiste ver los videos de la ultima clase?
@@ -319,17 +341,14 @@ nlu:
    - tuviste problemas con algun tema ?
    - tuviste problemas en algun ejercicio ?
    - pudiste resolver la actividad propuesta ?
-
+#- estas cursando (4)(anios) anio?  # puedo usar esta entidad (anios) aca ?------------------------------- 
 - intent: consultar_cursadas
-   examples: |     
+  examples: |     
    - estas cursando (tercero)(anio)?
    - estas cursando (4)(anio) anio?
-   - estas cursando (4)(anio) to anio?
-   
-#puedo usar esta entidad (anios) aca ?-------------------------------   
-   - estas cursando (4)(anios) anio?   
-   #-------------------------------   
-   - que [materias](materias) estas cursando ?  #- que [fddgfdgdf](materias) estas cursando ?
+   - estas cursando (4)(anio) to anio? 
+   - estas cursando (4)(anios) anio?  
+   - que [materias](materias) estas cursando ?  
    - que [materias](materias) y de que [anio](anio) y [cuatrimestre](cuatrimestre) estas cursando?
    - que [materias](materias) estas cursando?
    - que [anio](anio) y [cuatrimestre](cuatrimestre) estas cursando?
@@ -340,7 +359,7 @@ nlu:
 # Puede ingresar un numero o nombrarlo en cuestion   
 
 - intent: responder_consultas
-   examples: |     
+  examples: |     
    - genial!! Entonces no tienes mas dudas ?
    - queres que te lo explique de otra forma ?
    - queres que te lo explique de otra manera ?
@@ -350,7 +369,7 @@ nlu:
    - si no tenes mas dudas , dejamos hasta aca
 
 - intent: consultar_dudas
-   examples: |     
+  examples: |     
    - genial!! Entonces no tienes mas dudas ?
    - si queres comentame en que tuviste dificultades ?
    - si no tienes mas dudas , con esto estamos
