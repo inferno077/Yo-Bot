@@ -23,6 +23,114 @@ nlu:
     - que hay
     - que onda
     - que ondaaa
+    - Hola buenos dias!
+    - hola buen dia
+    - buenos dias!
+    - buenas!
+    - Buenaaass!!
+    - Buen diaaa!
+    - Buenas noches!!!
+    - buenas tardes!
+    
+- intent: how_r_you
+  examples: |
+    - Como estas ?
+    - Como andas ? 
+    - como andas
+    - como andas?
+    - Como va ?
+    - Como va ?
+    - Que onda, tanto tiempo?
+    - Todo bien lo tuyo?
+    - Todo bien tus cosas?
+    - todo bien?
+    - tal?
+    - q tal?
+    - como va eso?
+  # - hola que haces [juan](nombre)? 
+
+- intent: composed_greet_how_r_you
+  examples: |
+    - Hola buen dia! Como estas ?
+    - Hola buen dia! Como andas ? 
+    - Hola! Como va ?
+    - Holiiis! Como va ?
+    - Que onda, tanto tiempo?
+    - Que haces ? Todo Bien?
+    - Que haces, todo bien?
+    - Hola que tal?
+    - Hola q tal?
+  # - hola que haces [juan](nombre)? 
+
+- intent: what_ru_doing
+  examples: |    
+    - Que andas haciendo?
+    - Que haces?
+    - Que hacias?
+    - Que estas haciendo?
+    - Que hace?
+    - Que haces?
+    - que haces?
+    - q haces?
+    - qehh hace?
+
+- intent: composed_greet_what_ru_doing
+  examples: |    
+    - Hola buenos dias! Que andas haciendo?
+    - Buenas! Que haces?
+    - Holiiiis! Que estas haciendo?
+    - Holu! Que hace?
+    - Holuu! Que haces?
+    - Holiis , que haces?
+    - hola que haces?
+    - Buenas!! Que hace?
+  # - bien y vos ?
+
+ # en caso de que sea un vervo , podria con entidades entity:verbo , capturar la accion con la terminacion de la palabra
+ # por ejemplo [corriendo] toma de la palabra corri/desayun(endo/ando) tiene que empezar/terminar con ando o terminar con endo
+- intent: im_doing
+  examples: |   
+   - comiendo
+   - desayunando
+   - pelando papas 
+   - Preparando los proyectos para la proxima entrega
+   - Bien aca! Preparando los proyectos para la proxima entrega
+   - Estaba ordenando un poco la casa
+   - Estaba ordenando la casa
+   - Estaba limpiando un poco la casa
+   - Estaba limpiando la casa
+   - Bien aca! Estaba ordenando un poco la casa
+   - Estaba haciendo la tarea
+   - Estaba haciendo los deberes
+   - Por ir a entrenar
+   - Por ir a clases
+   - Bien aca! Por desayunar
+   - Por desayunar
+   - Bien bien , recien termine de desayunar
+   - Genial, por tomar el colectivo para ir a la facultad
+   - por ir a hacer algo de deporte
+   - estoy por salir
+   - por salir
+   - por salir a correr
+   - estoy por ducharme
+   - por ducharme
+   - por ir a timbear
+   - por ir al bingo
+   - por ir a la iglesia
+   - por comer algo
+   - estaba por comer algo
+   - iba a salir a hacer los mandados
+   - iba a hacer los mandados
+   - iba a hacer los quehaceres
+   - por ir a jugar
+   - por salir a jugar unos partiditos
+   - juagando a las cartas 
+   - jugando a la play
+   - viciando en la pc
+   - viciando en la play 
+   - cocinando algo rico
+   - preparando la comida para la cena
+   - preparando la comida para la merienda
 
 - intent: goodbye
   examples: |
@@ -44,6 +152,24 @@ nlu:
     - nos vemos luego
     - luego ns vemos
     - nos estamos viendo
+    - ns estamos viendo
+    - adios!
+    - adiooos
+    - Ns vemooos!
+    - Nos vemooos
+    - Ns vemos
+    - nos vemos
+    - nos vemos pronto!
+    - nos vemos luego!
+    - luego nos vemos!
+    - chau chauuu
+    - chau chau
+    - Hasta luego, buenas noches!!!
+    - Buenas noches! Adioos
+    - Buenas noches, no vemos!
+    - buenas noches nos vemos!
+    
+    
 
 - intent: affirm
   examples: |
@@ -53,6 +179,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - obviously
     - asi es
     - si
     - correcto
@@ -65,6 +192,16 @@ nlu:
     - ajam
     - por su pollo
     - por su poyo
+    - si, suele pasar
+    - si son cosas que pasan
+    - si, por eso te digo!
+    - si masvale!
+    - si, mas vale!
+    - Obviamente
+    - Obvio!
+    - Mas le vale!
+    
+
 
 - intent: deny
   examples: |
@@ -84,6 +221,33 @@ nlu:
     - nop
     - no me gusta eso
     - no me gusta nada
+    - no para nada!
+    - no, para nada
+    - ni lo pienses
+    - ni en pedo
+    - ni en dope
+    - ni en p2
+    - ni loco
+    - nehh
+    - ni ahi
+
+
+#- me alegro muchisimo por vos!
+- intent: feel_good_4_you 
+  examples: |
+    - me alegro!
+    - me alegroo
+    - me alegro mucho
+    - m alegro mucho
+    - me alegro muchooo
+    - me alegro muchisimo
+    - me alegro muchisimo por vos!
+    - me alegro mucho por vos
+    - m alegro mucho x vos
+    - me alegro muchisimo x vs
+    - me alegro muchisimo x vos
+    - que buena noticia!!
+    - q buena noticia!
 
 - intent: mood_great
   examples: |
@@ -101,6 +265,14 @@ nlu:
     - so so perfect
     - so good
     - so perfect
+    - bn
+    - genial
+    - perfecto
+    - increible
+    - chetoo
+    - cheto!
+    - copado!
+    - que copado!
     - tan peso goodrfecto
     - tan bueno 
     - tan buena
@@ -110,14 +282,55 @@ nlu:
     - maravilloso
     - me siento como un rey
     - me siento dios
-    - perfecto
+    - me siento genial
+    - me siento joya
+    - me siento perfectamente bien
     - soy perfecto
-    - genial
     - soy genial
-    - increible
     - soy increible
     - hermoso
     - soy hermoso
+    - me siento bien
+    - bien y vos ?
+    - bien, vos ?
+    - bien y tu?
+    - bien! Usted?
+    - muy bien, vos ?
+    - muy bien y usted?
+    - me siento bien y vos?
+    - bien bien
+    - bien aca
+    - bien aqui
+    - muy bien
+    - todo bien por aca
+    - todo bien x aca
+    - todo bien por estos lares
+    - todo bien por ests lares
+    - todo bien x estos lares
+    - todo bien x ests lares
+    - todo ok
+    - ando joya
+    - todo tranqui
+    - todo tranka
+    - todo tranca
+    - todo tranquilo
+    - ah que bueno!
+    - que bueno 
+    - buenisimo 
+    - me encanta
+    - que buena onda
+    - q buena onda!
+    - q buena onda
+  # - me alegro!
+  # - me alegroo
+  # - me alegro mucho
+  # - me alegro muchooo
+  # - me alegro muchisimo
+  # - me alegro muchisimo por vos!
+  # - me alegro mucho por vos
+  # - m alegro mucho x vos
+  # - me alegro muchisimo x vs
+  # - me alegro muchisimo x vos
     
 - intent: mood_unhappy
   examples: |
@@ -151,6 +364,13 @@ nlu:
     - estoy decepcionado
     - de malas
     - mal
+    - mas o menos
+    - medio bajon
+    - medio bajoneado
+    - no tengo ganas de nada
+    - estoy malhumorado
+    - estoy mal humorado
+    - me siento mal
 
 - intent: bot_challenge
   examples: |
@@ -172,8 +392,31 @@ nlu:
     - eres humano ?
     - eres un humano ?
 
+- intent: gracias
+  examples: |
+    - gracias.
+    - muchas gracias!!
+    - Eso es todo. Muchas gracias!!
+    - Con eso me alcanza, muchas gracias!
+
+- intent: preguntar_edad
+  examples: |
+    - que edad tenes? 
+    - q edad tenes? 
+    - que edad tienes?
+    - q edad tienes?
+    - cuantos años tenes?
+    - cuantos años cumpliste?
+    - cuantos años tienes?
+    - tu edad?
+#Los intent nombrados a continuacion son a definir con     
+# Rango de edades : por ej niniez , adolecia, adultez , 3ra edad (adultos mayores),
+#    - en que franja etaria estas ?
+#     - en que rango etario estas ?
+#    - en q franja etaria estas ?
+
 # mi nombre es Pepito Flores y mi dni es 54323095
-- intent: edad_usuario
+- intent: proporcionar_edad
   examples: |
     - tengo [18](anios)
     - [18](anios) anios
@@ -192,11 +435,23 @@ nlu:
   examples: |
    - ([0-9]{2,3})  
 
+# El usuario me dice donde vive
 - intent: ciudad_residencia
   examples: |
+    - mira que locoo! Yo tambien!
+    - jaja mira vos! Yo tambien!
+    - ahh mira vos! Yo tambien!
+    - ah que bueno, yo tambien vivo en [Corrientes](ciudad)!
+    - ah que bueno, yo vivo en [Jujuy](ciudad)!
+    - ah mira!! Yo tambien vivo en [Corrientes](ciudad)!
+    - ah mira vos, yo tambien vivo en [Corrientes](ciudad)!
+    - ah que bueno!! yo vivo en [Jujuy](ciudad)!
+    - mira que loco!! Yo vivo en [Jujuy](ciudad)!
+    - que locooo!! Yo tambien vivo en [Corrientes](ciudad)!
     - vivo en [Tandil](ciudad)
     - vivo en [Olavarria](ciudad)
     - vivo en [Azul](ciudad)
+    - yo soy de [CABA](ciudad)
     - soy de [Salta](ciudad)
     - soy de [CABA](ciudad)
     - de [Tandil](ciudad)
@@ -209,31 +464,50 @@ nlu:
     - resido en [La plata](ciudad)
     - resido en [Tucuman](ciudad)
     - resido en [Coronel Pringles](ciudad)
+    - Ah que bueno!!. Yo soy de [Jujuy](ciudad)
 - regex : ciudad
   examples: |
    - ((([aA-zZ]\w+ *){1,})+( )*){1,} 
 
 #- intent: preguntar_ciudad
 #  examples: |
+#    - una pregunta, donde vives ?
+#    - una pregunta, de que ciudad sos ?
+#    - una pregunta, donde vivis ?
 #    - de que ciudad sos?
 #    - de que ciudad eres?
 #    - de donde sos ?
 #    - cual es tu ciudad de origen?
 #    - de que ciudad venis?
-#    - eres de [tandil](mi_ciudad)
-#    - sos de [olavarria](mi_ciudad)?
-#    - estas radicado en [coronel Pringles](mi_ciudad)?
-#    - vivis en [Tierra del Fuego](mi_ciudad)?
-#    - cual es tu ciudad de residencia?
-#    - residis en [Olavarria](mi_ciudad)?
+#    - donde vivis?
 
+#El usuario me pregunta donde vivo
 - intent: preguntar_ciudad
   examples: |
-    - eres de [tandil](mi_ciudad)?
-    - sos de [olavarria](mi_ciudad)?
-    - estas radicado en [coronel Pringles](mi_ciudad)?
-    - vivis en [Tierra del Fuego](mi_ciudad)?
-    - residis en [Olavarria](mi_ciudad)?
+   - una pregunta, donde vives ?
+   - una pregunta, de que ciudad sos ?
+   - una pregunta, donde vivis ?
+   - de que ciudad sos?
+   - de que ciudad eres?
+   - de donde sos ?
+   - cual es tu ciudad de origen?
+   - de que ciudad venis?
+   - donde vivis?
+   - dnde vivi?
+   - dnde vivis?
+   - donde vivis ?
+   - dondee viviis!
+   - cual es tu ciudad de residencia?
+   - eres de [tandil](mi_ciudad)?
+   - sos de [olavarria](mi_ciudad)?
+   - estas radicado en [coronel Pringles](mi_ciudad)?
+   - vivis en [Tierra del Fuego](mi_ciudad)?
+   - residis en [Olavarria](mi_ciudad)?
+   - Estoy recopilando informacion, vivis en (Azul)(mi_ciudad)?
+   - Bueno me alegro! Estoy recopilando informacion, vivis en (Formosa)(mi_ciudad)?
+- regex : mi_ciudad
+  examples: |
+   - ((([aA-zZ]\w+ *){1,})+( )*){1,}     
 
 #- intent: horario_vespertino
 #  examples: |
@@ -249,10 +523,13 @@ nlu:
 #   - que horario podes de tarde?
 #   - a que hora puedes de tarde?
 #   - podes a la tarde?
-   
+
+
+
+ #- podes de [noche](franjaH){ "entity" :"franjaH" , "value":"1"} se podra asignar un valor ? por ej: cuando tengo manana; tarde; noche   
 - intent: franja_horaria
   examples: |
-   - puedo retirarlo de [noche](franjaH)
+   - puedo retirarlo de [noche](franjaH) 
    - puedo buscarlo a la [mañana](franjaH)
    - puedo de [tarde](franjaH)
    - puedo pasar a la [mañana](franjaH)
@@ -262,6 +539,7 @@ nlu:
    - solo de [tarde](franjaH)
    - a la [mañana](franjaH)
    - por la [noche](franjaH)
+   - x la [noche](franjaH)
    - que horario podes de [tarde](franjaH)?
    - a que hora puedes de [noche](franjaH)?
    - podes a la [mañana](franjaH)?
@@ -290,10 +568,23 @@ nlu:
 #  + - The plus symbol + matches one or more occurrences of the pattern left to it.
 # ... +( )*){1,2} :: El + admite una o mas ocurrencias de los  caracteres de la izquierda (" (([aA-zZ]\w+ *){1,}) ")  luego el parentesis agrega uno o mas espacios por el asterisco "()*" , y {1,2} quiere decir que puede haber como minimo una palabra, y como maximo 2:: EJ  (pasado, pasado manana )
 
+
+
+
+# QUIZAS TENGA QUE USAR UNA ENTIDAD [materias](materias) | [cursas|cursando]
 - intent: consultar_estado_actual_cursadas
   examples: |
    - que estas cursando ? 
+   - que modulo estas cursando ?
    - que materias estas cursando ?
+   - que materias estas cursando?
+   - q materias estas cursando?
+   - que cursas?
+   - q estas cursando?
+   - que andas cursando?
+   - que materias ests hacien2?
+   - me podes decir, que materias estas cursando ?
+   - Una cosita mas , me podes decir, que materias estas cursando ?
    - en que materias te anotaste?
    - en que materias te anotaste para esta cursada?
    - en que materias te anotaste para este cuatrimestre?
@@ -301,6 +592,15 @@ nlu:
    - cuales estas cursando ?
    - este anio que cursas?
    - que cursaste este anio?
+
+- intent: consultar_finales_dados
+  examples: |
+   - que finales tenes dados?
+   - que finales pudiste rendir ?
+   - que finales diste ?
+   - que finales rendiste ?
+   - Una cosita mas , me podes decir, que finales pudiste rendir ?
+   - Otra cosa, que finales diste?
 
 - intent: consultar_por_materia
   examples: |  
@@ -322,6 +622,12 @@ nlu:
 
 - intent: consultar_estado_carrera
   examples: |
+   - y como vas con la carrera?
+   - como va la carrera?
+   - como vas con la facu?
+   - como venis con la facu?
+   - como te esta yendo en la facu?
+   - como te esta yendo en la carrera?
    - como venis con la carrera?
    - en que anio estas ?
    - como te esta yendo en la carrera ?
@@ -331,6 +637,10 @@ nlu:
 
 - intent: consultar_tarea
   examples: |
+   - pudiste hacer la tarea ?
+   - pudiste completar la tarea ?
+   - pudiste hacer los deberes?
+   - pudiste completar los deberes?
    - pudiste resolver los ejercicios ?
    - pudiste ver los videos y teorias de la ultima clase?
    - pudiste ver los videos de la ultima clase?
@@ -341,6 +651,10 @@ nlu:
    - tuviste problemas con algun tema ?
    - tuviste problemas en algun ejercicio ?
    - pudiste resolver la actividad propuesta ?
+   - pudiste resolver todo el tp?
+   - pudiste realizar el tp?
+   - tuviste problemas con el TPE?
+
 #- estas cursando (4)(anios) anio?  # puedo usar esta entidad (anios) aca ?------------------------------- 
 - intent: consultar_cursadas
   examples: |     
@@ -358,8 +672,30 @@ nlu:
    - (  [1-5] | ([aA-zZ]\w+ *)  ){1,1}
 # Puede ingresar un numero o nombrarlo en cuestion   
 
-- intent: responder_consultas
-  examples: |     
+
+#- intent: responder_consultas     comprendiste_respuesta_consultas?
+- intent: ahora_entiendes
+  examples: |    
+   - entendiste ?
+   - comprendes ?
+   - comprendiste?
+   - ahora si ?
+   - ahora si se entendio?
+   - me explico ?
+   - m explico?
+   - me entendiste?
+   - me explique bien?
+   - m explique bien?
+   - me explique?  
+   - se entendio?
+   - c entendio?
+   - quedo claro? 
+   - otra consulta ?
+   - algo no se entendio?
+   - algo nc entendio?
+   - algo que no te halla quedado claro ?
+   - algo que no te quedo del todo claro ?
+   - algo no te quedo del todo claro ?
    - genial!! Entonces no tienes mas dudas ?
    - queres que te lo explique de otra forma ?
    - queres que te lo explique de otra manera ?
@@ -367,17 +703,16 @@ nlu:
    - esta bien , podes comentarme tu situacion
    - si no tienes mas dudas , con esto estamos
    - si no tenes mas dudas , dejamos hasta aca
+   
 
-- intent: consultar_dudas
-  examples: |     
-   - genial!! Entonces no tienes mas dudas ?
+- intent: quedaron_dudas?
+  examples: |   
    - si queres comentame en que tuviste dificultades ?
+   - te quedo alguna duda, de un tema en especifico?
+   - tenes alguna duda, de alguno de los temas que vimos?
+   - no tenes ninguna consulta?
    - si no tienes mas dudas , con esto estamos
    - si no tenes mas dudas , dejamos hasta aca
    - alguna otra duda?
    - alguna duda ?
-   - otra consulta ?
-   - algo no se entendio?
-   - algo que no te halla quedado claro ?
-   - algo que no te quedo del todo claro ?
-   - algo no te quedo del todo claro ?
+   

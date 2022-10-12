@@ -11,3 +11,15 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Contesta 'Hola, me siento..' cada vez que el user saluda y pregunta como anda 
+  steps:
+  - intent: composed_greet_how_r_you
+  - action: utter_hi_am_mood_and_you/composed_greet_how_r_you
+
+
+- rule: Contesta 'Hola, estoy haciendo..' cada vez que el user saluda y pregunta que hace 
+  steps:
+  - intent: composed_greet_what_ru_doing
+  - action: utter_hi_am_doing 
+

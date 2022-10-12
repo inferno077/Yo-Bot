@@ -2,12 +2,66 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: happy path 0
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: greet   #Buenassss
+  - action: utter_greet   # Hola {nombre} como andaas?
+  - intent: mood_great   # bien aca , vos?
+  - action: utter_happy  # me alegro
+
+- story: happy path 1.0
+  steps:
+  - intent: composed_greet_how_r_you   #hola que tal?
+  - action: utter_hi_am_mood_and_you/composed_greet_how_r_you #utter_great_how_r_you # Hola todo bien por aca, como andaas?
+  - intent: mood_great   # chetoo/ me siento bien 
+  - action: utter_happy_for_u/mood_great
+  - action: utter_wht_r_y_doing  #vos que hacias?
+  - intent: im_doing 
+  - action: utter_cool
+
+- story: happy path 1.1
+  steps:                              # nota , se podria a trabez de una cond , que si se siente mal , cambie a un sad path ya que el 1er intent y action , se repetiran en todas las historias
+  - intent: composed_greet_how_r_you #hola que haces?
+  - action: utter_hi_am_mood_and_you/composed_greet_how_r_you # hola bien/mal , vos?
+  - intent: what_ru_doing # que haces ?
+  - action: utter_am_doing/what_ru_doing  # estoy haciendo..
+  - intent: mood_great  #ah que bueno   
+
+- story: happy path 1.2
+  steps:                              # nota , se podria a trabez de una cond , que si se siente mal , cambie a un sad path ya que el 1er intent y action , se repetiran en todas las historias
+  - intent: composed_greet_how_r_you #hola que haces?
+  - action: utter_hi_am_mood_and_you/composed_greet_how_r_you # hola bien/mal , vos?
+  - intent: feel_good_4_you # si el slot esta en feliz deberia responderle esto
+  - action: utter_gracias
+  - intent: what_ru_doing # que haces ?
+  - action: utter_am_doing/what_ru_doing  # estoy haciendo..
+  - intent: mood_great  #ah que bueno  
+
+- story: happy path 1.3
+  steps:                              # nota , se podria a trabez de una cond , que si se siente mal , cambie a un sad path ya que el 1er intent y action , se repetiran en todas las historias
+  - intent: how_r_you #hola que haces?
+  - action: utter_hi_am_mood_and_you/composed_greet_how_r_you # hola bien/mal , vos?
+  - intent: feel_good_4_you # si el slot esta en feliz deberia responderle esto
+  - action: utter_gracias
+  - intent: what_ru_doing # que haces ?
+  - action: utter_am_doing/what_ru_doing  # estoy haciendo..
+  - intent: mood_great  #ah que bueno
+ 
+- story: happy path 2.0
+  steps:
+  - intent: composed_greet_what_ru_doing   #hola que tal , que haces?
+  - action: utter_hi_am_doing    # Hola todo bien por aca,haciendo ...?
+  - intent: mood_great   # bien aca 
+  - action: utter_happy  # me alegro
+
+- story: happy path 2.1
+  steps:
+  - intent: greet #hola
+  - action: utter_greet # como va?
+  - intent: composed_greet_what_ru_doing #bien,vos que haces ?
+  - action: utter_hi_am_doing  # estoy haciendo..
+  - intent: mood_great  #ah que bueno
+ 
 
 - story: sad path 1
   steps:
@@ -29,10 +83,77 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: localidad
+ #- story: localidad
+ #  steps:
+ #  - intent: preguntar_ciudad # Me preguntan donde vivo :: eres de [tandil](mi_ciudad)?
+ #  - action: action_ciudad_residencia # Como respuesta le digo donde, y si no conozco donde vive(slot ciudad), le consulta
+ #  - intent: ciudad_residencia # se supone q me va a decir donde  :: - vivo en [Azul](ciudad)
+ #  - action: action_ciudad_residencia # guardo su ciudad de residencia
+
+#- story: inicio composed happy path
+#  steps:
+#  - intent: composed_greet
+#  - action: 
+
+- story: se piden la edad
   steps:
-  - intent: preguntar_ciudad # Me preguntan donde vivo
+  - or:
+    - intent: proporcionar_edad  #tengo [18](anios)
+    - intent: preguntar_edad #que edad tenes?
+  - action: action_edad  # depende de la edad es lo que le pregunta
+
+
+- story: preguntas de localidad
+  steps:
+  - or:
+    - intent: preguntar_ciudad # Me preguntan donde vivo :: eres de [tandil](mi_ciudad)?
+    - intent: ciudad_residencia # se supone q me va a decir donde  :: - vivo en [Azul](ciudad)
   - action: action_ciudad_residencia # Como respuesta le digo donde, y si no conozco donde vive(slot ciudad), le consulta
-  - intent: ciudad_residencia # se supone q me va a decir donde
-  - action: action_ciudad_residencia # guardo su ciudad de residencia
-   
+
+- story: consulta por la carrera
+  steps:
+  - or:
+    - intent: consultar_estado_actual_cursadas  
+    - intent: consultar_finales_dados
+  - action: action_Consultas_Prolog
+  - intent: gracias
+  - action: utter_deNada
+
+- story: Consultas de la materia   # falta capturar en slot de que materia estamos hablando 
+  steps:
+  - intent: consultar_tarea   # pudiste ver los videos y teorias de la ultima clase?
+  - action: utter_tarea_realizada  # --Por suerte vengo al dia 
+  - intent: quedaron_dudas?       # te quedo alguna duda, de un tema en especifico?
+  - action: utter_dudas_materia   #--De momento ninguna. Quien sabe, luego siempre surge algun que otro problema.
+  - intent: mood_great                #que bueno
+
+- story: Consultas de la materia 2  # falta capturar en slot de que materia estamos hablando 
+  steps:
+  - intent: consultar_tarea   # pudiste ver los videos y teorias de la ultima clase?
+  - action: utter_tarea_realizada  # --Por suerte vengo al dia 
+  - intent: quedaron_dudas?       # te quedo alguna duda, de un tema en especifico?
+  - action: utter_consulta_tema   #--Podrias explicarme, como devolver mas de una variable en Python ?" 
+  - intent: ahora_entiendes   # como puedo hacer para que para cualquier entrada , continue por este camino "no pasa nada , como no lo va a encontrar en el nlu , simplemente espera que el usuario incerte algo" 
+  - checkpoint: pregunto_si_entendio_el_tema
+
+- story: Consultas de la materia 2 opcion 1  # falta capturar en slot de que materia estamos hablando 
+  steps:  
+  - checkpoint: pregunto_si_entendio_el_tema
+  - action: utter_comprendi_el_tema  
+  - action: utter_gracias
+
+- story: Consultas de la materia 2 opcion 2  # falta capturar en slot de que materia estamos hablando 
+  steps:  
+  - checkpoint: pregunto_si_entendio_el_tema
+  - action: utter_NO_comprendi_el_tema
+
+#- story: Consultas de la materia parte2   # falta capturar en slot de que materia estamos hablando 
+ # steps:
+  #- intent: affirm                #que bueno
+  #- action: utter_consulta_tema   #--Podrias explicarme, como devolver mas de una variable en Python ?"        
+  #- intent: gracias
+  #- action: utter_deNada
+  
+
+  # y si me responde la consulta ?
+

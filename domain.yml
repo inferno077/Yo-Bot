@@ -1,26 +1,45 @@
 version: "3.1"
 
 intents:
+ #  |Hola|como andas|que estas haciendo|estoy haciendo| 
   - greet
   - goodbye
+  #- composed_greet
+  - how_r_you
+  - composed_greet_how_r_you
+  - what_ru_doing
+  - composed_greet_what_ru_doing
+  - im_doing
+ #  |Confirmar|Denegar|que estas haciendo|estoy haciendo|  
   - affirm
   - deny
+ # |Sentirse bien|Sentirse mal|Agradecer 
+  - feel_good_4_you
   - mood_great
+  - gracias
   - mood_unhappy
+ # Desafio Bot 
   - bot_challenge
-  - edad_usuario
+ # |Relacionados a Edades| 
+  - preguntar_edad
+  - proporcionar_edad
+ # |Relacionados a Ciudades| 
   - ciudad_residencia
   - preguntar_ciudad
+ # |Relacionados a Horarios|
   - horario_vespertino
   - horario_matutino
   - coordinar_horario
+ # |Relacionados a Materias & Cursadas |
   - consultar_estado_actual_cursadas
+  - consultar_finales_dados
   - consultar_por_materia
   - consultar_estado_carrera
   - consultar_tarea
   - consultar_cursadas
-  - responder_consultas
-  - consultar_dudas
+ # |Relacionados a Dudas | 
+  - ahora_entiendes
+  - quedaron_dudas?
 
 entities:
   - ciudad
@@ -49,6 +68,7 @@ slots:
      entity: mi_ciudad   
 
   # (1|2|3|4|5) ----------------------------------------------------------------------- se puede poner int?
+  #Lo uso para la edad
 
   slot_anios:              
    type: text 
@@ -105,10 +125,45 @@ slots:
      entity: franjaH 
 
 actions: 
-  - action_edad
-  - action_ciudad_residencia
+  - action_edad                #(2 in 1)
+  - action_ciudad_residencia   #(2 in 1)
+  - action_Consultas_Prolog    #(2 in 1)
 
 responses:
+
+  utter_hi_am_mood_and_you/composed_greet_how_r_you:
+  - text: "Hola! Bien y vos Analia?"
+  #- text: "Hola bien aca, vos como andas ?"
+  #- text: "Mas o menos, ahi ando"
+  #- text: "Podria estar mejor y vos ?"
+
+
+#unificar con el de arriba
+  utter_great_how_r_you:
+  - text: "Hola! Bien y vos Analia?"
+  - text: "Hola bien aca, vos como andas ?"
+  - text: "Hola todo bien por aca, como andaas?"
+  - text: "Buenaas! Todo bien por aca, como andaas?"
+  - text: "Mas o menos, ahi ando"
+  - text: "Podria estar mejor y vos ?"
+
+  utter_wht_r_y_doing:
+  - text: "Vos que andas haciendo?"
+  - text: "vos que estas haciendo?"
+  - text: "Vos que haces?"
+  - text: "Tu hacias?"
+
+  utter_hi_am_doing:
+  - text: "Bien aca! Preparando los proyectos para la proxima entrega"
+  - text: "Bien aca! Estaba ordenando un poco la casa"
+  - text: "Bien bien , recien termine de desayunar"
+  - text: "Genial, por tomar el colectivo para ir a la facultad"
+  
+  utter_am_doing/what_ru_doing:
+  - text: "Preparando los proyectos para la proxima entrega"
+  - text: "Estaba ordenando un poco la casa"
+  - text: "recien termine de desayunar"
+  - text: "por ir a tomar el colectivo para ir a la facultad"
 
   utter_desconocido:
   - text: "Hola buen dia! Disculpame, como te llamas ? No te tengo agendado"
@@ -120,6 +175,13 @@ responses:
   - text: "Muy Bien!."
   - text: "Exelente!."
   - text: "Mejor que nunca!."
+  
+  utter_tarea_realizada:
+  - text: "Si si"
+  - text: "Si si, pude hacerlo sin problemas"
+  - text: "Si, por suerte vengo al dia!"
+  - text: "Si, por suerte vengo al dia!"
+  - text: "Por suerte vengo al dia "
 
   utter_preparando_materia:
   - text: "Preparando los proyectos para la proxima entrega"
@@ -143,11 +205,21 @@ responses:
   
   utter_dudas_materia:
   - text: "De momento no , quizas algunas cuestiones de Prolog."
+  - text: "De momento ninguna. Quien sabe, luego siempre surge algun que otro problema."
 
   utter_consulta_tema:
   - text: "Podrias explicarme, como devolver mas de una variable en Python ?"
   - text: "Podrias explicarme, como funciona el corte (!), en Prolog?"
   - text: "No me queda del todo claro, como configurar las credenciales"
+
+  utter_comprendi_el_tema:
+  - text: "Si, ahora quedo muchisimo mas claro"
+  - text: "Si si entendi"
+
+  utter_NO_comprendi_el_tema:
+  - text: "Podrias explicarmelo de otra manera ?"
+  - text: "No me quedo del todo claro"
+  - text: "Mas o menos"
   
   utter_preguntar_actividades:
   - text: "Estudias o trabajas?"
@@ -173,9 +245,9 @@ responses:
   - text: "Si, por supuesto!"
 
   utter_greet:
-  - text: "Hola! Como andas ?"
-  - text: "Buenas!!"
-  - text: "Holiiis! Como va eso?"
+  - text: "Hola Analia! Como andas ?"
+  #- text: "Buenas!!"
+  #- text: "Holiiis! Como va eso?"
 
   utter_cheer_up:
   - text: "Quizas esto te anime:"
@@ -183,23 +255,61 @@ responses:
 
   #video: "https://www.youtube.com/watch?v=WzgLBNOGMQQ&vl=es"
   #video: "https://www.youtube.com/watch?v=TUbtye9qx34&ab_channel=FunnyAnimals%27Club"
-    
+  utter_preguntar_edad:
+  - text: "vos que edad tenes ?"
+  - text: "que edad tenes ?"
+
   utter_preguntar_donde_vive:
-  - text: Vos donde vivis?
+  - text: "Y vos donde vivis?"
   - text: "Y vos donde estas viviendo ?"
   - text: "Vos de que ciudad sos ?"
   - text: "Y vos ?"
+  - text: "vos de donde sos ?"
+
+  utter_gracias:
+  - text: "Gracias!"
+  - text: "Muchas gracias!!"
+  - text: "Buenisimo gracias!"
+  - text: "Muchas gracias señorita!!" 
+    image: "https://tenor.com/brOZw.gif"
+  #image: "https://tenor.com/es/ver/jack-sparrow-salute-hat-off-condolences-jack-sparrow-hat-off-gif-18163964"
+  #image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_deNada:
+  - text: "De nada!"
+  - text: "No hay de que!"
+  - text: "De nada, no hay problema"
 
   utter_did_that_help:
   - text: "Esto te ayuda ?"
   - text: "Te sirve ?"
   - text: "Te es de utilidad ?"
 
+  # con esta sintaxis(utter_chitchat/ask_name:) , este formato usa utter_ seguido del nombre del intento de recuperacion(chitchat) y por ultimo un sufijo que especifica las diferentes claves de respuesta, en nuestro caso (mood_great| podria ser recibi_buena_noticia)
+  utter_happy_for_u/mood_great:
+  - text: "Me alegro por ti!"
+  - text: "Que buenoo!!"
+  - text: "Me alegroo!"
+  - text: "bien por ti! :D"
+
   utter_happy:
-  - text: "Great, carry on!"
+  - text: "Genial!"
+  - text: "Feliiz!!!"
+  - text: "Muy bien!!!"
+  - text: "bien aca andamos!"
+
+  utter_cool:
   - text: "Genial!."
   - text: "Que bueno!."
+  - text: "Que copado!"
   - text: "Ahh que bueno!!!"
+  - text: "Ahh que copadoo!!!"
+
+  utter_por_ahora:
+  - text: "Por ahora..."
+  - text: "mmhhh por ahora.."
+  - text: "mmhhh por el momento..."
+  - text: "por el momento.."  
 
   utter_goodbye:
   - text: "Bye"
